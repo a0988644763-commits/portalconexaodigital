@@ -1,1 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Conexão - Provedor de Internet em Bragança</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0066ff;
+            --secondary-color: #00ccff;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --accent-color: #00ffcc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn-primary-custom {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .card-feature {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .card-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .about-section {
+            background-color: #f8f9fa;
+        }
+        
+        .internet-image {
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .company-highlight {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .highlight-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        .pricing-card {
+            border: 2px solid transparent;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .pricing-header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 13px 13px 0 0;
+            padding: 20px;
+        }
+        
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-custom {
+            background-color: rgba(26, 26, 46, 0.95);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-custom.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white !important;
+        }
+        
+        .navbar-brand span {
+            color: var(--accent-color);
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+            
+            .stats-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#"><span>Portal</span> Conexão</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#plans">Planos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1>Internet de Alta Velocidade para <span class="company-highlight">Bragança</span></h1>
+            <p>Conectando você ao mundo com a melhor qualidade e estabilidade. Mais de <strong>13 anos</strong> de experiência levando internet rápida e confiável para sua casa ou empresa.</p>
+            <div class="mt-4">
+                <a href="#plans" class="btn btn-primary-custom btn-lg me-3">Ver Planos</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg">Fale Conosco</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card card-feature p-4 text-center">
+                        <i class="bi bi-speedometer2 feature-icon"></i>
+                        <h4>Internet Rápida</h4>
+                        <p>Velocidade de conexão que permite streaming, jogos online e reuniões virtuais sem interrupções.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-feature p-4 text-center">
+                        <i class="bi bi-shield-check feature-icon"></i>
+                        <h4>Conectividade Segura</h4>
+                        <p>Proteção avançada contra ameaças digitais para manter seus dados e dispositivos seguros.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-feature p-4 text-center">
+                        <i class="bi bi-headset feature-icon"></i>
+                        <h4>Suporte 24/7</h4>
+                        <p>Equipe técnica especializada disponível para atendimento a qualquer hora do dia ou noite.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Sobre a Portal Conexão</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <h3 class="mb-4">Mais de <span class="company-highlight">13 anos</span> conectando Bragança</h3>
+                    <p>A <strong>Portal Conexão LTDA</strong> atua no mercado desde 21 de janeiro de 2013, sempre com o compromisso de oferecer a melhor experiência de internet para nossos clientes.</p>
+                    <p class="highlight-text">Somos uma empresa de pequeno porte, optante pelo Simples Nacional, com capital social de R$ 500.000,00, demonstrando nossa solidez e comprometimento com o mercado.</p>
+                    <p>Nossa missão é proporcionar acesso à internet de alta qualidade para todos os moradores e empresas de Bragança, contribuindo para o desenvolvimento digital da região.</p>
+                    
+                    <div class="row mt-5 text-center">
+                        <div class="col-md-4 mb-3">
+                            <p class="stats-number">13+</p>
+                            <p>Anos no mercado</p>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <p class="stats-number">100%</p>
+                            <p>Ativa e regularizada</p>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <p class="stats-number">24/7</p>
+                            <p>Suporte técnico</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipe Portal Conexão" class="img-fluid internet-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title mb-5">Nossos Serviços</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="bi bi-house-door-fill highlight-text" style="font-size: 2rem;"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Internet Residencial</h4>
+                            <p>Conexão de alta velocidade para sua casa, perfeita para streaming, home office e estudos online. Planos que se adaptam às necessidades da sua família.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="bi bi-building highlight-text" style="font-size: 2rem;"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Internet Empresarial</h4>
+                            <p>Soluções de conectividade sob medida para empresas, com garantia de estabilidade, segurança e suporte prioritário para manter seu negócio sempre online.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="bi bi-wifi highlight-text" style="font-size: 2rem;"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Wi-Fi de Alta Performance</h4>
+                            <p>Instalação e configuração de redes Wi-Fi otimizadas para cobrir toda a sua residência ou empresa sem dead zones ou quedas de sinal.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <i class="bi bi-shield-lock highlight-text" style="font-size: 2rem;"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>Segurança Digital</h4>
+                            <p>Proteção avançada contra vírus, malware e ataques cibernéticos para manter seus dados e dispositivos sempre seguros durante a navegação.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="plans" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title mb-5">Nossos Planos de Internet</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card pricing-card h-100">
+                        <div class="pricing-header text-center">
+                            <h4 class="mb-3">BÁSICO</h4>
+                            <div class="pricing-price">R$ 79,90<span class="fs-6">/mês</span></div>
+                            <p class="mb-0">Ideal para navegação e redes sociais</p>
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>100 Mbps de velocidade</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Wi-Fi grátis</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Instalação gratuita</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Suporte 24h</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>1 dispositivo simultâneo</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary-custom w-100">Contratar Agora</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card pricing-card h-100 border-primary">
+                        <div class="pricing-header text-center bg-primary">
+                            <h4 class="mb-3">FAMÍLIA</h4>
+                            <div class="pricing-price">R$ 99,90<span class="fs-6">/mês</span></div>
+                            <p class="mb-0">Perfeito para famílias e home office</p>
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>300 Mbps de velocidade</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Wi-Fi de alta performance</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Instalação gratuita</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Suporte prioritário 24h</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Até 5 dispositivos simultâneos</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary-custom w-100">Contratar Agora</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card pricing-card h-100">
+                        <div class="pricing-header text-center">
+                            <h4 class="mb-3">PREMIUM</h4>
+                            <div class="pricing-price">R$ 149,90<span class="fs-6">/mês</span></div>
+                            <p class="mb-0">Para gamers e streaming em 4K</p>
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>600 Mbps de velocidade</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Wi-Fi Mesh grátis</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Instalação gratuita</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Suporte VIP 24h</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Dispositivos ilimitados</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary-custom w-100">Contratar Agora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title mb-5">Entre em Contato</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h3 class="mb-4">Informações de Contato</h3>
+                    <p>Estamos localizados no centro de Bragança, prontos para atender você com a melhor internet da região.</p>
+                    
+                    <ul class="contact-info">
+                        <li>
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div>
+                                <strong>Endereço:</strong><br>
+                                Rua Dr. Justo Chermont, 827, Sala A<br>
+                                Centro, Bragança - PA<br>
+                                CEP: 68600-000
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone-fill"></i>
+                            <div>
+                                <strong>Telefone:</strong><br>
+                                (91) 3425-3251
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope-fill"></i>
+                            <div>
+                                <strong>E-mail:</strong><br>
+                                portalconexaobgm@gmail.com
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-clock-fill"></i>
+                            <div>
+                                <strong>Horário de Atendimento:</strong><br>
+                                Segunda a Sexta: 8h às 18h<br>
+                                Sábado: 8h às 12h
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <h5>Dados da Empresa</h5>
+                        <p class="mb-1"><strong>CNPJ:</strong> 17.441.754/0001-80</p>
+                        <p class="mb-1"><strong>Razão Social:</strong> Portal Conexão LTDA</p>
+                        <p class="mb-1"><strong>Data de Abertura:</strong> 21/01/2013</p>
+                        <p class="mb-1"><strong>Situação:</strong> Ativa</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Solicite uma Visita</h3>
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Endereço</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="plan" class="form-label">Plano de Interesse</label>
+                            <select class="form-select" id="plan">
+                                <option value="basico">Básico - 100 Mbps</option>
+                                <option value="familia">Família - 300 Mbps</option>
+                                <option value="premium">Premium - 600 Mbps</option>
+                                <option value="outro">Outro/Não sei</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mensagem (Opcional)</label>
+                            <textarea class="form-control" id="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom w-100">Solicitar Contato</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="mb-3"><span>Portal</span> Conexão</h3>
+                    <p>Provedor de internet de alta velocidade em Bragança - PA, com mais de 13 anos de experiência conectando pessoas e empresas.</p>
+                    <p class="mb-0">CNPJ: 17.441.754/0001-80</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4 class="mb-3">Links Rápidos</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home">Início</a></li>
+                        <li class="mb-2"><a href="#about">Sobre Nós</a></li>
+                        <li class="mb-2"><a href="#services">Serviços</a></li>
+                        <li class="mb-2"><a href="#plans">Planos</a></li>
+                        <li class="mb-2"><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4 class="mb-3">Conecte-se Conosco</h4>
+                    <div class="d-flex">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-whatsapp fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-envelope fs-4"></i></a>
+                    </div>
+                    <p class="mt-4 mb-2">Atividade principal:</p>
+                    <p class="mb-0">61.90-6-01 - Provedores de acesso às redes de comunicações</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Portal Conexão LTDA. Todos os direitos reservados.</p>
+                <p class="mb-0">Desenvolvido com <i class="bi bi-heart-fill text-danger"></i> para Bragança - PA</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.nav-custom');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado pelo seu interesse! Entraremos em contato em breve para fornecer mais informações sobre nossos planos de internet.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
